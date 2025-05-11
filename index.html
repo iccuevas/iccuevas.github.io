@@ -16,7 +16,7 @@
 <body class="inter-body">
   <div class="main">
     <div>
-      <header class="header">
+      <!-- <header class="header">
         <div class="logo">
           <h1>IC</h1>
           <p>Ignacio Cuevas</p>
@@ -27,29 +27,55 @@
           <a href="#">Services</a>
           <a href="#">Contact</a>
         </nav>
+      </header> -->
+      <header class="header">
+        <div class="logo">
+          <h1>IC</h1>
+          <p>Ignacio Cuevas</p>
+        </div>
+        <div id="nav">
+          <a href="#">About</a>
+          <a href="#">Projects</a>
+          <a href="#">News</a>
+          <a href="#">Contact</a>
+        </div>
+        <a href="javascript:void(0);"
+           class="icon"
+           onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
       </header>
       <div class="content">
-        <div class="profile">
-          <div class="profile-picture">
-            <img
-              src="img/profile.jpeg"
-              alt="profile-picture"
-            />
-          </div>
-          <h1>Ignacio Cuevas</h1>
-          <h3>Intern</h3>
-          <p>Max Planck Institute for Security and Privacy</p>
-          <p class="email">ignacio.cuevas@mpi-sp.org</p>
-          <div class="social-icons">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <div class="sidebar">
+          <div class="profile">
+            <div class="profile-picture">
+              <img
+                src="img/profile.jpeg"
+                alt="profile-picture"
+              />
+            </div>
+            <h1>Ignacio Cuevas</h1>
+            <h3>Intern</h3>
+            <p>Max Planck Institute for Security and Privacy</p>
+            <p class="email">ignacio.cuevas@mpi-sp.org</p>
+            <div class="social-icons">
+              <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
           </div>
         </div>
         <div class="blog">
-          <h1>My Work</h1>
+          <h1>About me</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum felis vel hendrerit porttitor. Nam ultrices viverra vehicula. Sed viverra eros sed felis vestibulum rutrum nec nec mauris. Integer neque eros, aliquam et orci et, aliquet aliquet nunc. Cras ut tincidunt neque, id ullamcorper orci. Cras tortor quam, placerat eu mi eu, efficitur auctor leo. Suspendisse a viverra arcu. Fusce hendrerit tempor sapien at viverra. Nulla scelerisque turpis feugiat ligula ultricies pharetra. Suspendisse imperdiet turpis accumsan ultricies maximus.</p>
+
+          <h1>Projects</h1>
+          <p>Morbi facilisis tristique facilisis. Donec in lacinia turpis. Donec orci felis, euismod ut pellentesque ac, dictum eget sapien. Nullam vitae maximus magna. Sed finibus, quam vulputate rhoncus convallis, nisl tortor interdum purus, a pellentesque sem ligula in ligula. Nunc eleifend commodo augue, id fringilla ex convallis sit amet. Vivamus pharetra odio dolor, sed rutrum tellus venenatis vitae. Morbi varius leo vel ex auctor faucibus. Quisque condimentum sit amet lectus nec dignissim. Ut varius lacus a nulla aliquet, et auctor ligula suscipit. Nulla volutpat lacinia tellus eget elementum. Suspendisse eu lobortis dui, vitae aliquet felis. Curabitur consectetur turpis sit amet erat fringilla pellentesque. Nunc vitae laoreet leo, quis tempor quam.</p>
+
+          <h1>News</h1>
+          <p>Etiam diam nisi, vulputate in hendrerit ut, condimentum eget nisi. In faucibus, elit vitae venenatis rutrum, elit libero tempus urna, at vestibulum elit turpis sit amet arcu. Cras vel ipsum vel tortor egestas lobortis ac quis elit. Suspendisse et pulvinar nulla. Quisque a gravida nisl, sed fermentum erat. Vestibulum ut ipsum maximus, hendrerit est vel, elementum orci. Suspendisse tempor, purus ac mattis lacinia, metus quam euismod ipsum, eget auctor augue tortor sed velit. Maecenas justo velit, luctus eu orci in, cursus fermentum nunc. Maecenas nec arcu vel felis mattis accumsan. Vivamus aliquam, velit mattis faucibus fermentum, augue magna volutpat odio, in blandit nulla est eu arcu. Nam vehicula nibh eu eleifend sodales. Etiam pharetra risus elementum urna auctor finibus. Aliquam volutpat dui ac metus fermentum lacinia. Proin in dignissim tortor, non maximus lorem.</p>
+          <p>Vestibulum sodales pellentesque ipsum eu convallis. Vestibulum facilisis erat felis, quis fermentum neque vestibulum nec. Integer sed turpis eget ex laoreet aliquam. Vivamus facilisis massa nec lorem sollicitudin laoreet. Cras elementum viverra lectus sit amet aliquet. Aliquam efficitur aliquam lorem quis suscipit. Donec aliquet nisi eu lorem ultrices aliquet. Mauris a scelerisque quam. Curabitur tincidunt porttitor nulla vitae pulvinar. Mauris quis diam ac mauris aliquet bibendum quis eu dolor. Etiam a dolor sit amet sem porta ullamcorper non eget quam. Aliquam non ante tempus, pellentesque dui at, eleifend nulla. Nunc id semper augue.</p>
         </div>
       </div>
     </div>
@@ -57,6 +83,13 @@
       <p>© 2025 My Website. All rights reserved.</p>
     </footer>
   </div>
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("nav");
+      x.classList.toggle("show");
+    }
+  </script>  
 </body>
 </html>
 

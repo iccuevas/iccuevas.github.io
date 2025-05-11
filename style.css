@@ -19,40 +19,64 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  /* background-color: #FAF9F6; */
-  padding: 0 20px;
+}
+.header a {
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border: 1px solid transparent;
+}
+.header #nav {
+  margin: 10px;
+}
+.header a:hover {
+  border: 1px solid black;
+}
+.icon, .icon i {
+  display: none;
 }
 .logo {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 15px;
+  margin: 16px;
 }
 .logo > h1 {
   font-size: 40px;
+  margin: 0;
 }
 .logo > p {
   font-size: 16px;
   color: grey;
 }
-.nav > a {
-  font-size: 14px;
-  padding: 0 5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: black;
-}
-.nav > a:hover {
-  text-decoration: underline;
+.active {
+  background-color: #ddd;
+  color: white;
 }
 
 /* Profile card */
+.sidebar {
+  position: block;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 20px;
+}
 .profile {
+  position: fixed;
   display: flex;
   flex: 0 0 auto;
   max-width: 400px;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 .profile h1, h3, p {
   margin: 6px;
@@ -92,10 +116,14 @@
 }
 .blog {
   flex: 1 1 500px;
-  max-width: 800px;
+  max-width: 768px;
 }
 .blog h1 {
   font-size: 50px;
+}
+.blog p {
+  font-size: 16px;
+  margin: 0;
 }
 
 /* Footer */
@@ -104,9 +132,12 @@
   align-items: center;
   justify-content: center;
 }
+.footer p {
+  margin: 40px;
+}
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .profile, .blog {
     width: 90%;
   }
@@ -114,4 +145,43 @@
     flex-direction: column;
     align-items: center;
   }
+  .sidebar {
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  .profile {
+    position: relative;
+  }
+  .header {
+    display: block;
+    overflow: hidden;
+    position: relative;
+  }
+  .header #nav {
+    display: none;
+    margin: 0;
+  }
+  .header a {
+    text-align: center;
+    display: block;
+  }
+  .icon {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 16px;
+    padding: 0 4px;
+  }
+  .icon i {
+    display: block;
+    font-size: 30px;
+  }
+}
+
+#nav.show {
+  display: block;
 }
