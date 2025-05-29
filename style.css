@@ -16,21 +16,33 @@
 /* Navigation bar */
 .header {
   display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.header-container {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0;
+  padding: 0;
 }
-.header a {
+.header-container a {
   color: black;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
   border: 1px solid transparent;
 }
-.header #nav {
+.header-container #nav {
   margin: 10px;
 }
-.header a:hover {
+.header-container a:hover {
   border: 1px solid black;
 }
 .icon, .icon i {
@@ -61,19 +73,18 @@
   position: block;
   top: 0;
   left: 0;
-  width: 250px;
+  width: 350px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  padding: 20px;
 }
 .profile {
   position: fixed;
   display: flex;
   flex: 0 0 auto;
-  max-width: 400px;
+  max-width: 350px;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -109,14 +120,14 @@
 .content {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 20px auto;
+  gap: 30px;
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
 }
 .blog {
-  flex: 1 1 500px;
-  max-width: 768px;
+  flex: 1;
+  min-width: 0;
 }
 .blog h1 {
   font-size: 50px;
@@ -155,16 +166,16 @@
   .profile {
     position: relative;
   }
-  .header {
+  .header-container {
     display: block;
     overflow: hidden;
     position: relative;
   }
-  .header #nav {
+  .header-container #nav {
     display: none;
     margin: 0;
   }
-  .header a {
+  .header-container a {
     text-align: center;
     display: block;
   }

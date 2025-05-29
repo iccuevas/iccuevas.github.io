@@ -29,21 +29,23 @@
         </nav>
       </header> -->
       <header class="header">
-        <div class="logo">
-          <h1>IC</h1>
-          <p>Ignacio Cuevas</p>
+        <div class="header-container">
+          <div class="logo">
+            <h1>IC</h1>
+            <p>Ignacio Cuevas</p>
+          </div>
+          <div id="nav">
+            <a href="#">About</a>
+            <a href="#">Projects</a>
+            <a href="#">News</a>
+            <a href="#">Contact</a>
+          </div>
+          <a href="javascript:void(0);"
+            class="icon"
+            onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+          </a>
         </div>
-        <div id="nav">
-          <a href="#">About</a>
-          <a href="#">Projects</a>
-          <a href="#">News</a>
-          <a href="#">Contact</a>
-        </div>
-        <a href="javascript:void(0);"
-           class="icon"
-           onclick="myFunction()">
-          <i class="fa fa-bars"></i>
-        </a>
       </header>
       <div class="content">
         <div class="sidebar">
@@ -85,7 +87,7 @@
   </div>
 
   <script>
-    function myFunction() {
+    function toggleMenu() {
       var x = document.getElementById("nav");
       x.classList.toggle("show");
     }
