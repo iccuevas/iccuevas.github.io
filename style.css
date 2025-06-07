@@ -1,3 +1,25 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#topbutton {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid lightgray;
+}
+#topbutton:hover {
+  border: 1px solid black;
+}
+
 /* Container */
 .inter-body {
   padding: 0;
@@ -136,6 +158,37 @@
   font-size: 16px;
   margin: 0;
 }
+
+/* News post */
+.post {
+  margin-bottom: 15px;
+}
+.news-post {
+  margin-bottom: 40px;
+}
+
+.news-post h2 {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.news-post .date {
+  font-size: 14px;
+  color: #888;
+}
+
+.news-post img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.news-post p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
 
 /* Footer */
 .footer {

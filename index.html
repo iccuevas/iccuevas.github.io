@@ -12,22 +12,27 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+<link rel="manifest" href="img/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="img/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
 </head>
 <body class="inter-body">
   <div class="main">
     <div>
-      <!-- <header class="header">
-        <div class="logo">
-          <h1>IC</h1>
-          <p>Ignacio Cuevas</p>
-        </div>
-        <nav class="nav">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Contact</a>
-        </nav>
-      </header> -->
       <header class="header">
         <div class="header-container">
           <div class="logo">
@@ -35,10 +40,10 @@
             <p>Ignacio Cuevas</p>
           </div>
           <div id="nav">
-            <a href="#">About</a>
-            <a href="#">Projects</a>
-            <a href="#">News</a>
-            <a href="#">Contact</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
           </div>
           <a href="javascript:void(0);"
             class="icon"
@@ -69,19 +74,52 @@
           </div>
         </div>
         <div class="blog">
-          <h1>About me</h1>
+          <h1 id="about">About me</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum felis vel hendrerit porttitor. Nam ultrices viverra vehicula. Sed viverra eros sed felis vestibulum rutrum nec nec mauris. Integer neque eros, aliquam et orci et, aliquet aliquet nunc. Cras ut tincidunt neque, id ullamcorper orci. Cras tortor quam, placerat eu mi eu, efficitur auctor leo. Suspendisse a viverra arcu. Fusce hendrerit tempor sapien at viverra. Nulla scelerisque turpis feugiat ligula ultricies pharetra. Suspendisse imperdiet turpis accumsan ultricies maximus.</p>
 
-          <h1>Projects</h1>
-          <p>Morbi facilisis tristique facilisis. Donec in lacinia turpis. Donec orci felis, euismod ut pellentesque ac, dictum eget sapien. Nullam vitae maximus magna. Sed finibus, quam vulputate rhoncus convallis, nisl tortor interdum purus, a pellentesque sem ligula in ligula. Nunc eleifend commodo augue, id fringilla ex convallis sit amet. Vivamus pharetra odio dolor, sed rutrum tellus venenatis vitae. Morbi varius leo vel ex auctor faucibus. Quisque condimentum sit amet lectus nec dignissim. Ut varius lacus a nulla aliquet, et auctor ligula suscipit. Nulla volutpat lacinia tellus eget elementum. Suspendisse eu lobortis dui, vitae aliquet felis. Curabitur consectetur turpis sit amet erat fringilla pellentesque. Nunc vitae laoreet leo, quis tempor quam.</p>
+          <h1 id="projects">Projects</h1>
+          <div class="news-post">
+            <div class="post">
+              <p class="date">ORAM</p>
+              <p>
+                Currently migrating <strong><a href="https://signal.org/">Signal</a></strong>'s Path ORAM to Jasmin. They use Path ORAM in their <strong><a href="https://github.com/signalapp/ContactDiscoveryService-Icelake/">Contact Discovery Service</a></strong> to hide memory access patterns. Two leakages were found during migration.
+              </p>
+            </div>
+            <div class="post">
+              <p class="date">ML-KEM</p>
+              <p>
+                Adapted ML-KEM Jasmin implementation from ML-KEM-768 to ML-KEM-1024 ensuring constant-time and speculative constant-time execution.
+                <strong><a href="https://github.com/formosa-crypto/formosa-mlkem/tree/master">Formosa ML-KEM GitHub repository</a></strong>.
+              </p>
+            </div>
+          </div>
 
-          <h1>News</h1>
-          <p>Etiam diam nisi, vulputate in hendrerit ut, condimentum eget nisi. In faucibus, elit vitae venenatis rutrum, elit libero tempus urna, at vestibulum elit turpis sit amet arcu. Cras vel ipsum vel tortor egestas lobortis ac quis elit. Suspendisse et pulvinar nulla. Quisque a gravida nisl, sed fermentum erat. Vestibulum ut ipsum maximus, hendrerit est vel, elementum orci. Suspendisse tempor, purus ac mattis lacinia, metus quam euismod ipsum, eget auctor augue tortor sed velit. Maecenas justo velit, luctus eu orci in, cursus fermentum nunc. Maecenas nec arcu vel felis mattis accumsan. Vivamus aliquam, velit mattis faucibus fermentum, augue magna volutpat odio, in blandit nulla est eu arcu. Nam vehicula nibh eu eleifend sodales. Etiam pharetra risus elementum urna auctor finibus. Aliquam volutpat dui ac metus fermentum lacinia. Proin in dignissim tortor, non maximus lorem.</p>
-          <p>Vestibulum sodales pellentesque ipsum eu convallis. Vestibulum facilisis erat felis, quis fermentum neque vestibulum nec. Integer sed turpis eget ex laoreet aliquam. Vivamus facilisis massa nec lorem sollicitudin laoreet. Cras elementum viverra lectus sit amet aliquet. Aliquam efficitur aliquam lorem quis suscipit. Donec aliquet nisi eu lorem ultrices aliquet. Mauris a scelerisque quam. Curabitur tincidunt porttitor nulla vitae pulvinar. Mauris quis diam ac mauris aliquet bibendum quis eu dolor. Etiam a dolor sit amet sem porta ullamcorper non eget quam. Aliquam non ante tempus, pellentesque dui at, eleifend nulla. Nunc id semper augue.</p>
+          <h1 id="news">News</h1>
+          <div class="news-post">
+            <div class="post">
+              <p class="date">Mar 2025</p>
+              <p>
+                Attended <a href="https://rwpqc.sandboxaq.com/"><strong>Real-World PQC 2025</strong></a> and <a href="https://rwc.iacr.org/2025/"><strong>Real-World Crypto 2025</strong></a> in Sofia, Bulgaria.
+              </p>
+            </div>
+            <div class="post">
+              <p class="date">Feb 2025</p>
+              <p>
+                Attended <a href="https://formosa-crypto.org/"><strong>Formosa Crypto</strong></a> retreat in Porto, Portugal.
+              </p>
+            </div>
+            <div class="post">
+              <p class="date">Dec 2024</p>
+              <p>
+                Started my internship at <a href="https://www.mpi-sp.org/"><strong>Max Planck Institute for Security and Privacy</strong></a> in Bochum, Germany as a <i>Cryptographic Engineer</i>.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <footer class="footer">
+    <button id="topbutton"><i class="fas fa-arrow-up"></i></button>
+    <footer class="footer" id="contact">
       <p>© 2025 My Website. All rights reserved.</p>
     </footer>
   </div>
@@ -91,6 +129,18 @@
       var x = document.getElementById("nav");
       x.classList.toggle("show");
     }
+
+    // go to top button
+    const backToTopBtn = document.getElementById('topbutton');
+    window.addEventListener('scroll', () => {
+      backToTopBtn.style.display = window.scrollY > 100 ? 'block' : 'none';
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
   </script>  
 </body>
 </html>
