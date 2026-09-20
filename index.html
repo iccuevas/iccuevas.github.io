@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ignacio Cuevas | PhD Student</title>
+  <title>Personal Website of Ignacio Cuevas</title>
+  <script>
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +30,7 @@
 <link rel="manifest" href="img/site.webmanifest">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
+<meta id="theme-color-meta" name="theme-color" content="#ffffff">
 </head>
 <body class="inter-body">
   <div class="main">
@@ -36,6 +46,19 @@
             <a href="#talks">Talks</a>
             <a href="#news">News</a>
           </div>
+          <button id="theme-toggle" class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode">
+            <span class="switch-thumb" aria-hidden="true">
+              <svg class="icon-sun" viewBox="0 0 24 24" width="13" height="13" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="13" height="13" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            </span>
+          </button>
           <a href="javascript:void(0);"
             class="icon"
             onclick="toggleMenu()">
@@ -169,6 +192,37 @@
       x.classList.toggle("show");
     }
 
+    // dark mode switch
+    (function () {
+      var root = document.documentElement;
+      var toggle = document.getElementById('theme-toggle');
+      var meta = document.getElementById('theme-color-meta');
+      var barColors = { light: '#ffffff', dark: '#181818' };
+
+      function apply(theme) {
+        root.setAttribute('data-theme', theme);
+        toggle.setAttribute('aria-checked', String(theme === 'dark'));
+        meta.setAttribute('content', barColors[theme]);
+      }
+
+      apply(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+
+      toggle.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.classList.add('theme-transition');
+        apply(next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        setTimeout(function () { root.classList.remove('theme-transition'); }, 400);
+      });
+
+      // Follow the system setting until the visitor picks a theme themselves
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+        var saved;
+        try { saved = localStorage.getItem('theme'); } catch (err) {}
+        if (!saved) apply(e.matches ? 'dark' : 'light');
+      });
+    })();
+
     // go to top button
     const backToTopBtn = document.getElementById('topbutton');
     window.addEventListener('scroll', () => {
@@ -183,4 +237,3 @@
   </script>  
 </body>
 </html>
-

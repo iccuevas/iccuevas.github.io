@@ -1,5 +1,33 @@
+/* Theme tokens */
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --muted: #888888;
+  --border: lightgray;
+  --link: #0000ee;
+  --link-visited: #551a8b;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #181818;
+  --text: #ebebeb;
+  --muted: #9b9b9b;
+  --border: #444444;
+  --link: #8ab4f8;
+  --link-visited: #c6a4f5;
+  color-scheme: dark;
+}
+
 html {
+  background-color: var(--bg);
   /* scroll-behavior: smooth; */
+}
+
+/* Short cross-fade when the switch is flipped (not on page load).
+   The switch itself is excluded: it has its own transitions below. */
+.theme-transition,
+.theme-transition *:not(.theme-toggle):not(.switch-thumb):not(.switch-thumb i) {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
 }
 
 #topbutton {
@@ -13,11 +41,12 @@ html {
   cursor: pointer;
   display: none;
   z-index: 1000;
-  background-color: white;
-  border: 1px solid lightgray;
+  background-color: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
 }
 #topbutton:hover {
-  border: 1px solid black;
+  border: 1px solid var(--text);
 }
 
 /* Container */
@@ -27,6 +56,8 @@ html {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  background-color: var(--bg);
+  color: var(--text);
 }
 .main {
   height: 100vh;
@@ -55,17 +86,17 @@ html {
   padding: 0;
 }
 .header-container a {
-  color: black;
+  color: var(--text);
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
   border: 1px solid transparent;
 }
 .header-container #nav {
-  margin: 10px;
+  margin: 10px 10px 10px auto;
 }
 .header-container a:hover {
-  border: 1px solid black;
+  border: 1px solid var(--text);
 }
 .icon, .icon i {
   display: none;
@@ -83,11 +114,80 @@ html {
 }
 .logo > p {
   font-size: 16px;
-  color: grey;
+  color: var(--muted);
 }
 .active {
   background-color: #ddd;
   color: white;
+}
+
+/* Dark mode switch */
+.theme-toggle {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 26px;
+  margin: 0 16px;
+  padding: 2px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  cursor: pointer;
+  display: block;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.theme-toggle:hover {
+  border-color: var(--text);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+.switch-thumb {
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 11px;
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+:root[data-theme="dark"] .switch-thumb {
+  transform: translateX(22px);
+}
+
+/* Both icons share the same spot; only one is visible at a time.
+   Selectors are scoped to .theme-toggle so they win over Font Awesome's
+   own .fa-solid rules (its stylesheet loads after this one). */
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.theme-toggle .icon-sun {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+.theme-toggle .icon-moon {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-90deg) scale(0.5);
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(90deg) scale(0.5);
+}
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
 }
 
 /* Profile card */
@@ -132,7 +232,7 @@ html {
 .social-icons a {
   font-size: 18px;
   margin: 6px 6px;
-  color: black;
+  color: var(--text);
 }
 .email {
   font-family: "IBM Plex Mono", monospace;
@@ -158,6 +258,12 @@ html {
   font-size: 16px;
   margin: 0;
 }
+.blog a {
+  color: var(--link);
+}
+.blog a:visited {
+  color: var(--link-visited);
+}
 
 /* News post */
 .post {
@@ -174,7 +280,7 @@ html {
 
 .news-post .date {
   font-size: 14px;
-  color: #888;
+  color: var(--muted);
 }
 
 .news-post img {
@@ -259,8 +365,28 @@ html {
     display: block;
     font-size: 30px;
   }
+  /* Sits just left of the menu icon */
+  .theme-toggle {
+    position: absolute;
+    top: 18px;
+    right: 68px;
+    margin: 0;
+  }
 }
 
 #nav.show {
   display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .switch-thumb,
+  .theme-toggle .icon-sun,
+  .theme-toggle .icon-moon {
+    transition: none;
+  }
+  .theme-transition,
+  .theme-transition * {
+    transition: none !important;
+  }
 }
